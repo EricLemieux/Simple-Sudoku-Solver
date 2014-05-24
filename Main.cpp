@@ -20,11 +20,13 @@ int main()
 	char *arr = new char[81];
 	arr = Load("puzzle.txt");
 
+	Print(arr);
+
 	return 0;
 }
 
 //Load the puzzle file for the program to solve.
-//Takes in the path to the file
+//Inputs path to the file
 //Outputs the puzzle
 //Currently assumes the file is correct, may add some checking later
 char* Load(char *filePath)
@@ -69,7 +71,28 @@ char* Solve(char *puzzle)
 	return NULL;
 }
 
+//Print the data to the console
+//Inputs the puzzle
+//Outputs nothing
 void Print(char *puzzle)
 {
-	//TODO
+	for (unsigned int rows = 0; rows < 9; rows ++)
+	{
+		for (unsigned int i = 0; i < 9; i++)
+		{
+			std::cout << puzzle[rows*9 + i];
+
+			if (i == 2 || i == 5)
+			{
+				std::cout << " | ";
+			}
+		}
+
+		if (rows == 2 || rows == 5)
+		{
+			std::cout << std::endl;
+			std::cout << "----------------";
+		}
+		std::cout << std::endl;
+	}
 }
